@@ -2,9 +2,9 @@
   "name": "similar-doctors",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon server/index.js",
+    "start": "nodemon server/server.js",
     "dev": "webpack -d --watch",
     "prod": "webpack -p"
   },
