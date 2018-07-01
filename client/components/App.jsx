@@ -6,18 +6,23 @@ class App extends React.Component {
     super()
     
     this.state = {
-
+      specialty: '',
+      city: '',
     }
+    this.handleSpecialtySelection = this.handleSpecialtySelection.bind(this);
+    this.handleCitySelection = this.handleCitySelection.bind(this);
   }
 
   handleSpecialtySelection(e) {
+    this.setState({specialty: e.target.value});
   }
 
   handleCitySelection(e) {
+    this.setState({city: e.target.value});
   }
 
-  handleFind() {
-    //check db for these doctors
+  find() {
+    //request to get from db
   }
 
   render() {
