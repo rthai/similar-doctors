@@ -5,8 +5,8 @@ const stream = fs.createWriteStream('db/data/doctorList.json');
 
 stream.write('[');
 
-const write100x = () => {
-  let i = 100;
+const write200x = () => {
+  let i = 200;
   function write() {
     let ok = true;
     do {
@@ -28,4 +28,4 @@ const write100x = () => {
   write();
 };
 
-write100x();
+write200x();
