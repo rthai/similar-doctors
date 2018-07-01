@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import { specialties, cities } from '../../db/data/generateDoctor.js';
+import DoctorList from './DoctorList.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -10,18 +11,19 @@ class App extends React.Component {
     this.state = {
       specialty: '',
       city: '',
-      doctors: ''
+      doctors: '',
+      foundClicked: false,
     }
     this.handleSpecialtySelection = this.handleSpecialtySelection.bind(this);
     this.handleCitySelection = this.handleCitySelection.bind(this);
   }
 
   handleSpecialtySelection(e) {
-    this.setState({specialty: e.target.value});
+    this.setState({ specialty: e.target.value });
   }
 
   handleCitySelection(e) {
-    this.setState({city: e.target.value});
+    this.setState({ city: e.target.value });
   }
 
   find() {
@@ -31,7 +33,10 @@ class App extends React.Component {
         city: this.state.city,
       }
     })
-    .then( doctors =>  this.setState({ doctors: doctors.data }))
+    .then( doctors =>  this.setState({ 
+      doctors: doctors.data,
+      foundClicked: true
+    }))
     .catch( error => console.log(error))
   }
 
@@ -54,6 +59,7 @@ class App extends React.Component {
           </select>
           <button type="button" onClick={() => this.find()}>Find</button>
         </form>
+        {this.state.foundClicked ? <DoctorList/> : null}
       </div>
     );
   }
