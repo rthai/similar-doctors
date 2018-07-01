@@ -9,6 +9,9 @@
 # testing
 /coverage
 
+#compiled
+/public/bundle.js
+
 # production
 /build
 
