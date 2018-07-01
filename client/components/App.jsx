@@ -42,22 +42,26 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Find a Doctor</h1>
+      <div className="app">
+        <header className="app-header">
+          <h1 className="app-title">Find a Doctor</h1>
         </header>
-        <form className="App-form">
-          <label htmlFor="search">Search</label>
-          <select name="specialty" onChange={this.handleSpecialtySelection}>
-            <option value="" defaultValue="disabled selected">Specialty</option>
-            {specialties.map( (specialty, index) => <option value={specialty} key={index}>{specialty}</option>)}
-          </select>
-          <label htmlFor="near">Near</label>
-          <select name="city" onChange={this.handleCitySelection}>
-            <option value="" defaultValue="disabled selected">City</option>
-            {cities.map( (city, index) => <option value={city} key={index}>{city}</option>)}
-          </select>
-          <button type="button" onClick={() => this.find()}>Find</button>
+        <form className="app-form">
+          <div className="app-search specialty">
+            <label htmlFor="search">Search</label>
+            <select name="specialty" onChange={this.handleSpecialtySelection}>
+              <option value="" defaultValue="disabled selected">Specialty</option>
+              {specialties.map( (specialty, index) => <option value={specialty} key={index}>{specialty}</option>)}
+            </select>
+          </div>
+          <div className="app-search near">
+            <label htmlFor="near">Near</label>
+            <select name="city" onChange={this.handleCitySelection}>
+              <option value="" defaultValue="disabled selected">City</option>
+              {cities.map( (city, index) => <option value={city} key={index}>{city}</option>)}
+            </select>
+            <button className="app-btn-find" type="button" onClick={() => this.find()}><i className="fa fa-search"></i></button>
+          </div>
         </form>
         {this.state.foundClicked ? <DoctorList doctors={this.state.doctors}/> : null}
       </div>
