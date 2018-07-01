@@ -5,16 +5,17 @@ body {
 }
 .app {
   text-align: center;
+  text-shadow: 0.1px 0.1px #f0f0f0;
 }
 .app-title {
   color: #333;
-  text-shadow: 0.1px 0.1px gray;
 }
 form {
   padding: 0.5rem;
-  margin: 3rem;
+  margin: 3rem 8rem 3rem 8rem;
   border: 1px solid lightgrey;
   border-radius: 0.2rem;
+  box-shadow: 1px 1px 1px #eaeaea;
 }
 .app-search {
   display: inline-block;
@@ -23,7 +24,6 @@ form {
 label {
   padding-right: 0.4rem;
   color: #090909;
-  text-shadow: 0.1px 0.1px gray;
 }
 select {
   padding: 2rem;
@@ -40,5 +40,43 @@ select {
   font-size: large;
 }
 ul {
+  margin: 3rem 8rem 3rem 8rem;
+  padding-left: 0;
   list-style-type: none;
+}
+.doctor-list-item {
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+  border: 0.8px solid #f0f0f0;
+  border-radius: 0.2rem;
+  box-shadow: 1px 1px 1px #eaeaea;
+  text-align: left;
+}
+a:visited {
+  color: #3E3866;
+}
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+p {
+  margin: 0.1rem;
+}
+img {
+  border-radius: 0.5rem;
+}
+.doctor-list-item-details {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.doctor-list-item-info {
+  float: right;
+  margin-left: 1rem;
+  letter-spacing: 0.02rem;
+}
+.doctor-list-rating-stars {
+  margin: 1rem 0 1rem 0;
+}
+.filled {
+  color: dodgerblue;
 }
