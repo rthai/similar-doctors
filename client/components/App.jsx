@@ -14,6 +14,7 @@ class App extends React.Component {
       doctors: '',
       foundClicked: false,
     }
+
     this.handleSpecialtySelection = this.handleSpecialtySelection.bind(this);
     this.handleCitySelection = this.handleCitySelection.bind(this);
   }
@@ -46,6 +47,7 @@ class App extends React.Component {
         <header className="app-header">
           <h1 className="app-title">Find a Doctor</h1>
         </header>
+
         <form className="app-form">
           <div className="app-search specialty">
             <label htmlFor="search">Search</label>
@@ -63,6 +65,7 @@ class App extends React.Component {
             <button className="app-btn-find" type="button" onClick={() => this.find()}><i className="fa fa-search"></i></button>
           </div>
         </form>
+        
         {this.state.foundClicked ? <DoctorList doctors={this.state.doctors}/> : null}
       </div>
     );
