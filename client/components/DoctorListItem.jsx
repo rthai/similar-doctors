@@ -21,29 +21,31 @@ class DoctorListItem extends React.Component {
       <span className="fa fa-star" key="2"></span>,
       <span className="fa fa-star" key="3"></span>,
       <span className="fa fa-star" key="4"></span>
-    ]
+    ];
 
     for (let i = 0; i < filledStars; i++) {
       stars[i] = <span className="fa fa-star filled" key={i}></span>
     }
 
-
     let details = (     
-      <div>
-        <span><img src={this.props.doctor.thumbnail}></img></span>
-        <p>Address: {this.props.doctor.street_name}</p>
-        <p>{`${this.props.doctor.city}, ${this.props.doctor.state}`}</p>
-        <p>{this.props.doctor.phone_number}</p>
+      <div className="doctor-list-item-details">
+        <img src={this.props.doctor.thumbnail}></img>
+        <div className="doctor-list-item-info">
+          <p>{` ${this.props.doctor.street_name}`}</p> 
+          <p>{`${this.props.doctor.city}, ${this.props.doctor.state}`}</p>
+          <p>{this.props.doctor.phone_number}</p>
+          <div className="doctor-list-rating-stars">
+            {stars.map( star => star)}
 
-        {stars.map( star => star)}
-
-        <span>{` ${this.props.doctor.rating}`}</span>
+            <span>{` ${this.props.doctor.rating}`}</span>
+          </div>
+        </div>
       </div>
     ); 
 
     return (
-      <li className="DoctorListItem">
-        <a onClick={() => this.expandList()}>
+      <li className="doctor-list-item">
+        <a className="doctor-list-item-name" onClick={() => this.expandList()}>
           <h4>{`Dr. ${this.props.doctor.name}`}</h4>
         </a>
         {this.state.showDetails ? details : null}
