@@ -13,4 +13,14 @@ const doctorSchema = new mongoose.Schema({
 
 const Doctor = mongoose.model('Doctor', doctorSchema);
 
-module.exports = Doctor;
+const getDoctors = (specialty, city) => {
+  const dept = specialty;
+  const area = city;
+  return Doctor.find({specialty: dept, city: area})
+    .sort({ rating: -1 })
+}
+
+module.exports = {
+  Doctor,
+  getDoctors,
+};
