@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+
 import { specialties, cities } from '../../db/data/generateDoctor.js';
 
 class App extends React.Component {
@@ -8,6 +10,7 @@ class App extends React.Component {
     this.state = {
       specialty: '',
       city: '',
+      doctors: ''
     }
     this.handleSpecialtySelection = this.handleSpecialtySelection.bind(this);
     this.handleCitySelection = this.handleCitySelection.bind(this);
@@ -22,7 +25,14 @@ class App extends React.Component {
   }
 
   find() {
-    //request to get from db
+    axios.get('/api/doctors', {
+      params: {
+        specialty: this.state.specialty,
+        city: this.state.city,
+      }
+    })
+    .then( doctors =>  this.setState({ doctors: doctors.data }))
+    .catch( error => console.log(error))
   }
 
   render() {
@@ -42,7 +52,7 @@ class App extends React.Component {
             <option value="" defaultValue="disabled selected">City</option>
             {cities.map( (city, index) => <option value={city} key={index}>{city}</option>)}
           </select>
-          <button>Find</button>
+          <button type="button" onClick={() => this.find()}>Find</button>
         </form>
       </div>
     );

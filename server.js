@@ -9,7 +9,10 @@ const PORT = 4000;
 app.use('/', express.static(path.join(__dirname, './public')));
 
 app.get('/api/doctors', function(req, res) {
-  getDoctors('Urology', 'San Mateo') //remove hardcoded and parse from request
+  const dept = req.query.specialty;
+  const area = req.query.city;
+
+  getDoctors(dept, area)
     .then((doctors) => res.send(doctors))
     .catch((error) => res.status(500).send(error));
 });
