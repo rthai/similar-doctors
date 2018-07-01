@@ -59,7 +59,7 @@ class App extends React.Component {
           </select>
           <button type="button" onClick={() => this.find()}>Find</button>
         </form>
-        {this.state.foundClicked ? <DoctorList/> : null}
+        {this.state.foundClicked ? <DoctorList doctors={this.state.doctors}/> : null}
       </div>
     );
   }
