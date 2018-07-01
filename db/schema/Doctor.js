@@ -13,10 +13,11 @@ const doctorSchema = new mongoose.Schema({
 
 const Doctor = mongoose.model('Doctor', doctorSchema);
 
-const getDoctors = (specialty, city) => {
+//doctors are ranked by descending ratings
+const getDoctors = ( specialty, city ) => {
   const dept = specialty;
   const area = city;
-  return Doctor.find({specialty: dept, city: area})
+  return Doctor.find({ specialty: dept, city: area })
     .sort({ rating: -1 })
 }
 

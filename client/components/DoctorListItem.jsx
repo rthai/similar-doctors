@@ -3,8 +3,9 @@ import React from 'react';
 class DoctorListItem extends React.Component {
   constructor(props) {
     super(props)
+    
     this.state = {
-      showDetails: false
+      showDetails: false,
     }
   }
 
@@ -23,18 +24,21 @@ class DoctorListItem extends React.Component {
       <span className="fa fa-star" key="4"></span>
     ];
 
+    // only fills full stars, not partial stars (fix at a later time)
     for (let i = 0; i < filledStars; i++) {
       stars[i] = <span className="fa fa-star filled" key={i}></span>
     }
 
-    let details = (     
+    const details = (     
       <div className="doctor-list-item-details">
-        <img src={this.props.doctor.thumbnail}></img>
+        {/* avatar loads too slow because request is made only when list is expanded (fix at a later time) */}
+        <img src={this.props.doctor.thumbnail}></img> 
         <div className="doctor-list-item-info">
           <p>{` ${this.props.doctor.street_name}`}</p> 
           <p>{`${this.props.doctor.city}, ${this.props.doctor.state}`}</p>
           <p>{this.props.doctor.phone_number}</p>
           <div className="doctor-list-rating-stars">
+            
             {stars.map( star => star)}
 
             <span>{` ${this.props.doctor.rating}`}</span>
