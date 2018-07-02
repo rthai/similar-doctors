@@ -9,7 +9,8 @@
     "build:dev": "webpack -d --watch",
     "build:prod": "webpack -p",
     "generate:data": "node db/data/writeDoctorList.js",
-    "setup:db": "node db/seed.js"
+    "setup:db": "node db/seed.js",
+    "docker": "webpack -p && node db/seed.js & node server.js"
   },
   "repository": {
     "type": "git",
