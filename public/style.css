@@ -28,6 +28,7 @@ label {
   color: #090909;
 }
 select {
+  width: 268px;
   padding: 2rem;
   border: none;
   font-size: 16px;
@@ -37,9 +38,12 @@ select {
 }
 .app-btn-find {
   border: none;
+  background: none;
+  outline: none;
 }
 .fa {
-  font-size: large;
+  padding-left: 1rem;
+  font-size: 1.2rem;
 }
 ul {
   margin: 3rem 8rem 3rem 8rem;
@@ -57,7 +61,7 @@ ul {
 a:visited {
   color: #3E3866;
 }
-a:hover {
+a:hover, button:hover {
   text-decoration: underline;
   cursor: pointer;
 }
@@ -78,6 +82,9 @@ img {
 }
 .doctor-list-rating-stars {
   margin: 1rem 0 1rem 0;
+}
+.doctor-list-rating-stars > span {
+  padding: 0.05rem;
 }
 .filled {
   color: dodgerblue;
