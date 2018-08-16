@@ -4,7 +4,11 @@
 /node_modules
 
 # data
+/db/data/doctorList.txt
+
+# MongoDB backend 
 /db/data/doctorList.json
+/db/data/generateDoctorJSON.js
 
 # testing
 /coverage
