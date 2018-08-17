@@ -1,5 +1,5 @@
 # Similar Doctors
-Web application to browse doctor list
+Web application to browse doctor directory
 
 ## Tech Stack
 - MongoDB
@@ -18,4 +18,4 @@ Web application to browse doctor list
 ## Deployed Link
 Deployed on AWS EC2 Instance with Docker
 
-[Similar Doctors](http://ec2-34-219-72-20.us-west-2.compute.amazonaws.com/)
+~~Similar Doctors~~
