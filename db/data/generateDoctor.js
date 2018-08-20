@@ -7,7 +7,7 @@ const cities = `San Francisco,Oakland,Palo Alto,Berkeley,San Jose,Mountain View,
 const generateDoctor = () => {
   let doctor = '';
 
-  doctor += `${faker.fake('{{name.firstName}} {{name.lastName}}')},${faker.image.avatar()},${specialties[faker.random.number({min: 0, max: (specialties.length-1)})]},${faker.address.streetAddress()},${cities[faker.random.number({min: 0, max: (cities.length-1)})]},'CA',${faker.phone.phoneNumberFormat(1)},${faker.finance.amount(1, 5, 1)}\n`;
+  doctor += `${faker.fake('{{name.firstName}} {{name.lastName}}')},${faker.image.avatar()},${specialties[faker.random.number({min: 0, max: (specialties.length-1)})]},${faker.address.streetAddress()},${cities[faker.random.number({min: 0, max: (cities.length-1)})]},'CA',${faker.phone.phoneNumberFormat(1)},${faker.finance.amount(1, 5, 1)}`;
   
   return doctor;
 }
