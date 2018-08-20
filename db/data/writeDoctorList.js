@@ -7,7 +7,7 @@ const header = `name,thumbnail,specialty,street_name,city,state,phone_number,rat
 stream.write(header);
 
 const write200x = () => {
-  let i = 5;
+  let i = 200;
   function write() {
     let ok = true;
     do {
@@ -18,6 +18,7 @@ const write200x = () => {
         });
       } else {
         ok = stream.write(generateDoctor(), 'utf-8');
+        stream.write('\n');
       }
     } while (i > 0 && ok);
     if (i > 0) {
