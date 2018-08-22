@@ -1,13 +1,15 @@
-const mongoose = require('mongoose');
-// const mongoUri = 'mongodb://localhost/doctors';
-const mongoUriDocker = 'mongodb://database/doctors';
+const { Pool } = require('pg');
 
-// could have used BetterDoctor API for data instead of building a database and generating mock data
-
-const db = mongoose.connect(mongoUriDocker);
-
-mongoose.connection.on('connected', () => {
-  console.log('Mongoose connection open');
+const pool = new Pool({
+  database: 'similar_doctors',
 });
 
-module.exports = db;
+const getDoctorsBySpecialty = (specialty) => {
+  const q = `select * from doctors where specialty = ${specialty}`;
+  return pool.query(q);
+}
+
+module.exports = {
+  pool,
+  getDoctorsBySpecialty,
+}
