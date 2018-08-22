@@ -2,7 +2,7 @@
 Web application to browse doctor directory
 
 ## Tech Stack
-- MongoDB
+- PostgreSQL
 - Express.js
 - React.js
 - Node.js
