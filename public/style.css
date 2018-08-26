@@ -1,4 +1,4 @@
-/* would use styled components or bundle the components into bundle.js with css-loader & style-loader with more time instead of serving from public folder */
+/* would use styled components or bundle the components into bundle.js with css-loader & style-loader with more time instead of serving from public folder
 
 body {
   margin: 0;
@@ -79,7 +79,7 @@ img {
   float: right;
   margin-left: 1rem;
   letter-spacing: 0.02rem;
-}
+} */
 .doctor-list-rating-stars {
   margin: 1rem 0 1rem 0;
 }
