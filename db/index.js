@@ -1,15 +1,21 @@
-const { Pool } = require('pg');
+const knex = require('./knex');
 
-const pool = new Pool({
-  database: 'similar_doctors',
-});
+const getDoctors = (specialty, city) => (
+  knex('doctors')
+    .select()
+    .where({
+      specialty: specialty,
+      city: city
+    })
+    .orderBy('rating', 'desc')
+    // .then(rows => { rows })
+    // .then( () => knex.destroy())
+    .catch(err => console.error(err))
+);
 
-const getDoctorsBySpecialty = (specialty) => {
-  const q = `select * from doctors where specialty = ${specialty}`;
-  return pool.query(q);
-}
+// console.log(getDoctors('Immunology', 'San Francisco'))
 
 module.exports = {
-  pool,
-  getDoctorsBySpecialty,
+  // knex,
+  getDoctors,
 }
