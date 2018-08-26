@@ -45,24 +45,31 @@ class App extends React.Component {
     return (
       <div className="app">
         <header className="app-header">
-          <h1 className="app-title">Find a Doctor</h1>
+          <h1 className="display-4">Find a Doctor</h1>
         </header>
 
-        <form className="app-form">
-          <div className="app-search specialty">
-            <label htmlFor="search">Search</label>
-            <select name="specialty" onChange={this.handleSpecialtySelection}>
+        <form className="app-form w-75 mx-auto">
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <label className="input-group-text" htmlFor="inputGroupSelect01" htmlFor="search">Search</label>
+            </div>
+            <select className="custom-select" id="inputGroupSelect02" name="specialty" onChange={this.handleSpecialtySelection}>
               <option value="" defaultValue="disabled selected">Specialty</option>
               {specialties.map( (specialty, index) => <option value={specialty} key={index}>{specialty}</option>)}
             </select>
           </div>
-          <div className="app-search near">
-            <label htmlFor="near">Near</label>
-            <select name="city" onChange={this.handleCitySelection}>
-              <option value="" defaultValue="disabled selected">City</option>
-              {cities.map( (city, index) => <option value={city} key={index}>{city}</option>)}
-            </select>
-            <button className="app-btn-find" type="button" onClick={() => this.find()}><i className="fa fa-search"></i></button>
+
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <label className="input-group-text" htmlFor="inputGroupSelect01" htmlFor="near">Near</label>
+            </div>  
+              <select className="custom-select" id="inputGroupSelect02" name="city" onChange={this.handleCitySelection}>
+                <option value="" defaultValue="disabled selected">City</option>
+                {cities.map( (city, index) => <option value={city} key={index}>{city}</option>)}
+              </select>
+            <div className="input-group-append">
+              <button className="btn btn-outline-secondary" type="button" onClick={() => this.find()}><i className="fa fa-search"></i></button>
+            </div>
           </div>
         </form>
         

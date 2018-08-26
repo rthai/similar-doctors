@@ -26,20 +26,21 @@ class DoctorListItem extends React.Component {
 
     // only fills full stars, not partial stars (fix at a later time)
     for (let i = 0; i < filledStars; i++) {
-      stars[i] = <span className="fa fa-star filled" key={i}></span>
+      stars[i] = <span className="fa fa-star filled"></span>
     }
 
     const details = (     
       <div className="doctor-list-item-details">
         {/* avatar loads too slow because request is made only when list is expanded (fix at a later time) */}
-        <img src={this.props.doctor.thumbnail}></img> 
-        <div className="doctor-list-item-info">
-          <p>{` ${this.props.doctor.street_name}`}</p> 
-          <p>{`${this.props.doctor.city}, ${this.props.doctor.state}`}</p>
-          <p>{this.props.doctor.phone_number}</p>
+        <img src={this.props.doctor.thumbnail} className="float-left mr-3"></img> 
+        <div className="mb-1">
+          <dd>{` ${this.props.doctor.street_name}`}</dd> 
+          <dd>{`${this.props.doctor.city}, ${this.props.doctor.state}`}</dd>
+          <dd>{this.props.doctor.phone_number}</dd>
           <div className="doctor-list-rating-stars">
             
-            {stars.map( star => star)}
+            {/* array key warning */}
+            {stars.map( (star, idx) => star)} 
 
             <span>{` ${this.props.doctor.rating}`}</span>
           </div>
@@ -48,8 +49,8 @@ class DoctorListItem extends React.Component {
     ); 
 
     return (
-      <li className="doctor-list-item">
-        <a className="doctor-list-item-name" onClick={() => this.expandList()}>
+      <li className="list-group-item list-group-item-action">
+        <a onClick={() => this.expandList()}>
           <h4>{`Dr. ${this.props.doctor.name}`}</h4>
         </a>
         {this.state.showDetails ? details : null}
